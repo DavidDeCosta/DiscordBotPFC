@@ -1,0 +1,31 @@
+{
+  "name": "discordbotpfc",
+  "version": "1.0.0",
+  "description": "Hello World // TODO Write",
+  "main": "app.js",
+  "scripts": {
+    "start": "ts-node ./app.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidDeCosta/DiscordBotPFC.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidDeCosta/DiscordBotPFC/issues"
+  },
+  "homepage": "https://github.com/DavidDeCosta/DiscordBotPFC#readme",
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "ts-node": "^10.9.2",
+    "tsc": "^2.0.4",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "discord.js": "^14.15.2",
+    "dotenv": "^16.4.5",
+    "zod": "^3.23.8"
+  }
+}
