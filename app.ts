@@ -1,27 +1,30 @@
-import { Interaction } from "discord.js";
+import { ActivityType } from "discord.js";
 import "dotenv/config";
-import registerCommands from "./commands/test";
+import registerCommands from "./commands";
+import * as test from "./commands/test";
 import getClient from "./lib/discordClient";
-import env from "./models/env";
 
 const main = async () => {
   await registerCommands();
   const client = await getClient();
 
-  client.on("ready", async () => {
+  client.once("ready", async () => {
     console.log("bot is running");
-    await client.user.setActivity("Testing");
+    client.user?.setActivity("Up to Something...", {
+      type: ActivityType.Playing,
+    });
   });
 
-  client.on("interactionCreate", async (interaction: Interaction) => {
+  client.on("interactionCreate", async (interaction) => {
     if (!interaction.isChatInputCommand()) return;
-
     if (interaction.commandName === "ping") {
-      await interaction.reply("Pong!");
+      return test.execute(interaction);
     }
   });
 
-  client.login(env.DISCORD_BOT_TOKEN);
+  client.on("messageCreate", (message) => {
+    message.react("🔥");
+  });
 };
 
 main();
