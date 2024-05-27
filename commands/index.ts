@@ -2,9 +2,10 @@
 import { REST, Routes } from "discord.js";
 import env from "../models/env";
 import * as test from "./test";
+import * as pokemon from './pokemon'
 
 const registerCommands = async () => {
-  const commands = [test.command];
+  const commands = [test.command, pokemon.command];
 
   const rest = new REST({ version: "10" }).setToken(env.DISCORD_BOT_TOKEN);
 
