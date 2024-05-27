@@ -3,6 +3,7 @@ import "dotenv/config";
 import registerCommands from "./commands";
 import * as test from "./commands/test";
 import getClient from "./lib/discordClient";
+import * as pokemon from './commands/pokemon'
 
 const main = async () => {
   await registerCommands();
@@ -19,6 +20,9 @@ const main = async () => {
     if (!interaction.isChatInputCommand()) return;
     if (interaction.commandName === "ping") {
       return test.execute(interaction);
+    }
+    if(interaction.commandName === 'pokemon'){
+      return pokemon.execute(interaction);
     }
   });
 
